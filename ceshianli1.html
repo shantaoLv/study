@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>珂靠打车</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f8ff; /* 橙色加绿色 */
+      }
+
+      header {
+        background-color: #ffa500; /* 橙色 */
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        position: relative;
+      }
+
+      .advertisement-container {
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 5px;
+        color: #fff;
+        margin-bottom: 20px;
+        overflow: hidden; /* 防止溢出 */
+      }
+
+      .advertisement p {
+        margin: 0;
+        padding: 10px;
+      }
+
+      .advertisement ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .advertisement li {
+        padding: 5px;
+      }
+
+      .advertisement-pages {
+        display: flex;
+        transition: transform 0.5s ease;
+        height: 100%; /* 与advertisement-container高度一致 */
+      }
+
+      .advertisement-page {
+        flex: 1 0 100%;
+        padding: 20px;
+        text-align: center;
+        background-color: #ffa500; /* 橙色 */
+        color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .search-bar {
+        display: flex;
+        margin-bottom: 20px;
+      }
+
+      .search-input {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px 0 0 5px;
+      }
+
+      .search-button {
+        background-color: #ffa500; /* 橙色 */
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .search-button:hover {
+        background-color: #ff8c00; /* 橙色加深 */
+      }
+
+      .map-container {
+        background-color: #7cfc00; /* 绿色 */
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        text-align: center;
+        color: #fff;
+      }
+
+      footer {
+        background-color: #ffa500; /* 橙色 */
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        border-top: 1px solid #fff;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      .footer-link {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .button {
+        display: inline-block;
+        background-color: #ffa500; /* 橙色 */
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+      }
+
+      .button:hover {
+        background-color: #ff8c00; /* 橙色加深 */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>珂靠打车</h1>
+      <div class="advertisement-container">
+        <div class="advertisement">
+          <div class="advertisement-pages">
+            <div class="advertisement-page">
+              <h2>招聘信息</h2>
+              <ul>
+                <li>招聘司机，待遇优厚</li>
+                <li>招聘客服，工作轻松</li>
+                <li>欢迎加入我们</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="search-bar">
+        <input type="text" class="search-input" placeholder="请输入目的地" />
+        <button class="search-button">搜索</button>
+      </div>
+      <div class="map-container">地图定位显示</div>
+    </header>
+    <div class="container">
+      <h2>欢迎使用珂靠打车</h2>
+      <a href="#" class="button">立即打车</a>
+    </div>
+    <footer>
+      <div class="footer-links">
+        <a href="#" class="footer-link">首页</a>
+        <a href="#" class="footer-link">消息通知</a>
+        <a href="#" class="footer-link">用户中心</a>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<script>
+  const advertisementPages = document.querySelectorAll(".advertisement-page");
+  const advertisementContainer = document.querySelector(".advertisement-pages");
+
+  let currentPageIndex = 0;
+
+  function showNextPage() {
+    if (currentPageIndex < advertisementPages.length - 1) {
+      currentPageIndex++;
+    } else {
+      currentPageIndex = 0;
+    }
+    const newPosition = currentPageIndex * -100;
+    advertisementContainer.style.transform = `translateX(${newPosition}%)`;
+  }
+
+  setInterval(showNextPage, 5000);
+</script>
